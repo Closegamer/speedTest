@@ -8,9 +8,10 @@ from dataclasses import dataclass
 
 import requests
 
-DEFAULT_URL = "https://speed.hetzner.de/100MB.bin"
+DEFAULT_URL = "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
 CHUNK_SIZE = 64 * 1024
 MB = 1024 * 1024
+HEADERS = {"User-Agent": "speedTest/1.0 (https://github.com/Closegamer/speedTest)"}
 
 
 @dataclass
@@ -22,7 +23,7 @@ class RequestResult:
 def download_once(url: str, timeout: float) -> RequestResult:
     start = time.perf_counter()
     bytes_downloaded = 0
-    with requests.get(url, stream=True, timeout=timeout) as response:
+    with requests.get(url, headers=HEADERS, stream=True, timeout=timeout) as response:
         response.raise_for_status()
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             bytes_downloaded += len(chunk)

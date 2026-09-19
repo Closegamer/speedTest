@@ -31,7 +31,7 @@ pip install -r requirements.txt
 python speedtest.py [URL] [-n COUNT] [-t TIMEOUT]
 ```
 
-- `URL` — адрес файла для скачивания. Необязателен, по умолчанию используется `https://speed.hetzner.de/100MB.bin`.
+- `URL` — адрес файла для скачивания (например, тяжёлая картинка). Необязателен, по умолчанию используется фото Земли с Аполлона-17 (~6.5 MB) с серверов Wikimedia: `https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg`.
 - `-n, --count` — количество запросов (по умолчанию 10).
 - `-t, --timeout` — таймаут одного запроса в секундах (по умолчанию 30).
 
@@ -39,26 +39,26 @@ python speedtest.py [URL] [-n COUNT] [-t TIMEOUT]
 
 ```bash
 python speedtest.py
-python speedtest.py https://speed.hetzner.de/1GB.bin -n 5
-python speedtest.py https://proof.ovh.net/files/100Mb.dat -n 10 -t 15
+python speedtest.py https://proof.ovh.net/files/100Mb.dat -n 5
+python speedtest.py https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg -n 10 -t 15
 ```
 
 ### Пример вывода
 
 ```
-Тестируем скорость: https://speed.hetzner.de/100MB.bin
+Тестируем скорость: https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg
 Запросов: 10
 
-  [1/10]   100.00 MB за   8.21 с ->  12.18 MB/s
-  [2/10]   100.00 MB за   7.95 с ->  12.58 MB/s
+  [1/10]     6.21 MB за   0.85 с ->   7.31 MB/s
+  [2/10]     6.21 MB за   0.79 с ->   7.86 MB/s
   ...
-  [10/10]  100.00 MB за   8.05 с ->  12.42 MB/s
+  [10/10]    6.21 MB за   0.81 с ->   7.67 MB/s
 
 Итог:
   Успешных запросов:      10/10
-  Скачано данных:         1000.00 MB
-  Среднее время запроса:  8.05 с
-  Средняя скорость:       12.42 MB/s
+  Скачано данных:         62.10 MB
+  Среднее время запроса:  0.81 с
+  Средняя скорость:       7.67 MB/s
 ```
 
 ## Как это работает
